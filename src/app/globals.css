@@ -3,16 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 33, 37, 41; /* Darker gray for better contrast */
+  --background-start-rgb: 245, 245, 245; /* Light gray */
+  --background-end-rgb: 255, 255, 255; /* White */
+  --primary-color: 59, 130, 246; /* Tailwind Blue */
+  --secondary-color: 220, 38, 38; /* Tailwind Red */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 229, 231, 235; /* Light gray */
+    --background-start-rgb: 17, 24, 39; /* Very dark gray */
+    --background-end-rgb: 31, 41, 55; /* Dark gray */
+    --primary-color: 96, 165, 250; /* Light blue */
+    --secondary-color: 248, 113, 113; /* Light red */
   }
 }
 
@@ -26,8 +30,44 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+a {
+  color: rgb(var(--primary-color));
+}
+
+a:hover {
+  color: rgb(var(--secondary-color));
+}
+
+header {
+  background-color: rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb));
+}
+
+header button {
+  background-color: rgb(var(--secondary-color));
+}
+
+input, select, .react-datepicker-wrapper input {
+  background-color: transparent;
+  color: rgb(var(--foreground-rgb));
+  border-color: rgb(var(--foreground-rgb));
+}
+
+input:focus, select:focus, .react-datepicker-wrapper input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.5);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .table-auto {
+    table-layout: auto;
+  }
+
+  th, td {
+    text-align: center;
   }
 }
